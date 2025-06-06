@@ -23,7 +23,7 @@ const MarkdownPreview: React.FC<MarkdownPreviewProps> = ({ content }) => {
   return (
     <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200/50 overflow-hidden">
       <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200/50 bg-gray-50/50">
-        <h3 className="text-lg font-semibold text-gray-900">Generated Project Plan</h3>
+        <h3 className="text-2xl font-bold text-french-violet">Generated Project Plan</h3>
         <button
           onClick={handleCopy}
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 bg-white rounded-lg border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
