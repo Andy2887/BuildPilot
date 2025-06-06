@@ -45,7 +45,7 @@ const LoadingSpinner: React.FC = () => {
       <div className="mt-8 text-center">
         <div className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm">
           <div className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></div>
-          Estimated time: 30-60 seconds
+          Estimated time: 1 to 2 minutes
         </div>
       </div>
     </div>

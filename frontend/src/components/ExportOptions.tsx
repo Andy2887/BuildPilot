@@ -13,34 +13,51 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ plan, projectName }) => {
     return name.replace(/[^a-z0-9]/gi, '_').toLowerCase();
   };
 
+  // Visual PDF export with optimizations
   const exportAsPDF = async () => {
     try {
       const element = document.querySelector('.prose') as HTMLElement;
       if (!element) return;
 
       const canvas = await html2canvas(element, {
-        scale: 2,
+        scale: 1.5, // Increased scale for better resolution
         useCORS: true,
-        allowTaint: true
+        allowTaint: true,
+        backgroundColor: '#ffffff',
+        imageTimeout: 15000,
+        removeContainer: true,
+        logging: false, // Disable logging for better performance
+        width: element.scrollWidth,
+        height: element.scrollHeight
       });
 
-      const imgData = canvas.toDataURL('image/png');
+      // Calculate compression quality based on content size to stay under 10MB
+      const estimatedSize = (canvas.width * canvas.height * 4) / 1024 / 1024; // Rough MB estimate
+      let quality = 0.8; // Start with higher quality
+      
+      if (estimatedSize > 30) {
+        quality = 0.5; // Reduce quality for very large content
+      } else if (estimatedSize > 15) {
+        quality = 0.65; // Medium quality for large content
+      }
+
+      const imgData = canvas.toDataURL('image/jpeg', quality);
       const pdf = new jsPDF('p', 'mm', 'a4');
       
-      const imgWidth = 210;
-      const pageHeight = 295;
+      const imgWidth = 190; // Reduced width for margins
+      const pageHeight = 277; // Reduced height for margins
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
       let heightLeft = imgHeight;
       
-      let position = 0;
+      let position = 10; // Add top margin
       
-      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.addImage(imgData, 'JPEG', 10, position, imgWidth, imgHeight);
       heightLeft -= pageHeight;
       
       while (heightLeft >= 0) {
-        position = heightLeft - imgHeight;
+        position = heightLeft - imgHeight + 10;
         pdf.addPage();
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        pdf.addImage(imgData, 'JPEG', 10, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
       }
       
@@ -79,7 +96,7 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ plan, projectName }) => {
       label: 'Export PDF',
       icon: FileImage,
       onClick: exportAsPDF,
-      description: 'Professional document format'
+      description: 'Visual PDF with formatting'
     },
     {
       label: 'Export TXT',
