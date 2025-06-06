@@ -54,8 +54,8 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, isLoading, onReset,
   };
 
   return (
-    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Project Details</h2>
+    <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-white/30">
+      <h2 className="text-2xl font-bold text-french-violet mb-6">Project Details</h2>
       
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
@@ -70,7 +70,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, isLoading, onReset,
             className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 transition-all duration-200 ${
               errors.project_name
                 ? 'border-red-300 focus:ring-red-500 focus:border-red-500'
-                : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
+                : 'border-gray-700 focus:ring-slate-blue focus:border-slate-blue bg-white/50'
             }`}
             placeholder="e.g., E-commerce Platform"
             disabled={isLoading}
@@ -92,7 +92,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, isLoading, onReset,
             className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 transition-all duration-200 resize-none ${
               errors.project_description
                 ? 'border-red-300 focus:ring-red-500 focus:border-red-500'
-                : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
+                : 'border-gray-700 focus:ring-slate-blue focus:border-slate-blue bg-white/50'
             }`}
             placeholder="Describe your project in detail. Include the main features, target audience, and any specific requirements you have in mind..."
             disabled={isLoading}
@@ -109,7 +109,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, isLoading, onReset,
           <button
             type="submit"
             disabled={isLoading}
-            className="flex-1 inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+            className="flex-1 inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-grape to-slate-blue text-white font-semibold rounded-xl hover:from-french-violet hover:to-grape focus:outline-none focus:ring-2 focus:ring-slate-blue focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
           >
             <Sparkles className="h-5 w-5 mr-2" />
             {isLoading ? 'Generating...' : 'Generate Plan'}
@@ -120,7 +120,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, isLoading, onReset,
               type="button"
               onClick={handleReset}
               disabled={isLoading}
-              className="inline-flex items-center justify-center px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-xl hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center justify-center px-6 py-3 bg-white/80 text-gray-700 font-semibold rounded-xl hover:bg-white hover:text-french-violet focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed border border-white/50"
             >
               <RotateCcw className="h-5 w-5 mr-2" />
               Reset

@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --french-violet: #7400b8ff;
+  --grape: #6930c3ff;
+  --slate-blue: #5e60ceff;
+  --united-nations-blue: #5390d9ff;
+  --picton-blue: #4ea8deff;
+  --aero: #48bfe3ff;
+  --sky-blue: #56cfe1ff;
+  --tiffany-blue: #64dfdfff;
+  --turquoise: #72efddff;
+  --aquamarine: #80ffdbff;
+}
