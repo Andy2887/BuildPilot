@@ -22,7 +22,7 @@ const GeneratorPage: React.FC = () => {
     setProjectData(data);
 
     try {
-      const response = await fetch('http://localhost:8000/api/generate-plan/', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/generate-plan/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
