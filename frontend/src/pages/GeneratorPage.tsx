@@ -3,6 +3,7 @@ import ProjectForm from '../components/ProjectForm';
 import LoadingSpinner from '../components/LoadingSpinner';
 import MarkdownPreview from '../components/MarkdownPreview';
 import ExportOptions from '../components/ExportOptions';
+import { FileText, ArrowDown } from 'lucide-react';
 
 export interface ProjectData {
   project_name: string;
@@ -85,9 +86,9 @@ const GeneratorPage: React.FC = () => {
             )}
           </div>
 
-          {/* Right Column - Results */}
+          {/* Right Column - Results or Placeholder */}
           <div className="space-y-8">
-            {generatedPlan && (
+            {generatedPlan ? (
               <>
                 <ExportOptions 
                   plan={generatedPlan} 
@@ -95,6 +96,20 @@ const GeneratorPage: React.FC = () => {
                 />
                 <MarkdownPreview content={generatedPlan} />
               </>
+            ) : (
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200/50 p-8 h-full flex flex-col items-center justify-center text-center">
+                <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 bg-blue-100">
+                  <FileText className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Your Project Plan Will Appear Here</h3>
+                <p className="text-gray-600 mb-6 max-w-md">
+                  Fill in the project details on the left and click "Generate Plan" to create a comprehensive project plan using AI.
+                </p>
+                <div className="flex items-center text-blue-600">
+                  <ArrowDown className="h-5 w-5 mr-2" />
+                  <span className="font-medium">Generated content will show here</span>
+                </div>
+              </div>
             )}
           </div>
         </div>

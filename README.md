@@ -86,7 +86,6 @@ python main.py
 ```bash
 cd backend
 source .venv/bin/activate  # Make sure virtual environment is activated
-python manage.py migrate   # Run database migrations (first time only)
 python manage.py runserver # Start the Django development server
 ```
 
