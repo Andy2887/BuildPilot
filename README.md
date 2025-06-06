@@ -27,6 +27,8 @@ BuildPilot uses a multi-agent system powered by CrewAI:
 
 ### Backend
 - **Python 3.12+**
+- **Django**: Web framework for the REST API
+- **Django REST Framework**: API development toolkit
 - **CrewAI**: Multi-agent AI framework
 - **LangChain**: AI application development framework
 - **OpenAI API**: GPT-4 language model integration
@@ -64,49 +66,138 @@ BuildPilot uses a multi-agent system powered by CrewAI:
 4. **Configure environment variables**
    ```bash
    cp .env.example .env
-   # Edit .env and add your OpenAI API key
+   # Edit .env and add your OpenAI API key and Django secret key
    # OPENAI_API_KEY=your_api_key_here
+   # DJANGO_SECRET_KEY=your_django_secret_key_here
    ```
 
-## 💻 Usage
+## 💻 Running the Application
 
-### Basic Usage
-
-```python
-from main import ProjectPlanningAssistant
-
-# Initialize the assistant
-assistant = ProjectPlanningAssistant()
-
-# Generate a project plan
-project_name = "My Awesome Project"
-project_description = "A web application for task management with real-time collaboration"
-
-result = assistant.generate_project_plan(project_name, project_description)
-print(result)
-```
-
-### Running the Application
-
+### CLI Version
 ```bash
 cd backend
 python main.py
 ```
 
+### Django REST API Server
+```bash
+cd backend
+source .venv/bin/activate  # Make sure virtual environment is activated
+python manage.py migrate   # Run database migrations (first time only)
+python manage.py runserver # Start the Django development server
+```
+
+The API server will be available at `http://localhost:8000`
+
+## 🌐 API Endpoints
+
+BuildPilot provides a REST API for integration with other applications:
+
+### Health Check
+- **Endpoint**: `GET /api/health/`
+- **Description**: Check if the API server is running
+- **Response**:
+  ```json
+  {
+    "status": "healthy",
+    "message": "BuildPilot AI backend is running"
+  }
+  ```
+
+### Generate Project Plan
+- **Endpoint**: `POST /api/generate-plan/`
+- **Description**: Generate a comprehensive project plan using AI
+- **Request Body**:
+  ```json
+  {
+    "project_name": "My Awesome App",
+    "project_description": "A web application for task management with user authentication and real-time updates."
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "message": "success",
+    "plan": "# My Awesome App\n\n## Project Overview\n...",
+    "file_path": "/path/to/generated/my_awesome_app_plan.md"
+  }
+  ```
+
+### Download Generated Plan
+- **Endpoint**: `GET /api/download-plan/<filename>/`
+- **Description**: Download the generated project plan as a markdown file
+- **Example**: `GET /api/download-plan/my_awesome_app_plan.md`
+- **Response**: Markdown file download
+
+### API Usage Examples
+
+**Using cURL:**
+```bash
+# Health check
+curl http://localhost:8000/api/health/
+
+# Generate project plan
+curl -X POST http://localhost:8000/api/generate-plan/ \
+  -H "Content-Type: application/json" \
+  -d '{
+    "project_name": "E-commerce Platform",
+    "project_description": "A full-stack e-commerce solution with product catalog, shopping cart, payment processing, and admin dashboard."
+  }'
+
+# Download generated plan
+curl http://localhost:8000/api/download-plan/e-commerce_platform_plan.md
+```
+
+**Using Python requests:**
+```python
+import requests
+
+# Generate project plan
+response = requests.post('http://localhost:8000/api/generate-plan/', json={
+    'project_name': 'Social Media App',
+    'project_description': 'A social networking platform with user profiles, posts, messaging, and content feeds.'
+})
+
+if response.status_code == 200:
+    data = response.json()
+    print("Plan generated successfully!")
+    print(data['plan'])
+else:
+    print("Error:", response.json())
+```
+
 ## 📁 Project Structure
 
 ```
-AI Agent Project/
+BuildPilot/
 ├── README.md
 ├── backend/
-│   ├── .env                 # Environment variables (create from .env.example)
-│   ├── .gitignore          # Git ignore file
-│   ├── .venv/              # Python virtual environment
-│   ├── agents.py           # AI agent definitions
-│   ├── main.py             # Main application entry point
-│   ├── requirements.txt    # Python dependencies
-│   └── tasks.py            # Task definitions for agents
-└── frontend/               # Frontend (coming soon)
+│   ├── .env                    # Environment variables (create from .env.example)
+│   ├── .env.example           # Environment variables template
+│   ├── db.sqlite3             # SQLite database (created after migrations)
+│   ├── manage.py              # Django management script
+│   ├── run_server.py          # Custom server runner script
+│   ├── agents.py              # AI agent definitions
+│   ├── main.py                # CLI application entry point
+│   ├── requirements.txt       # Python dependencies
+│   ├── tasks.py               # Task definitions for agents
+│   ├── generated_plans/       # Directory for generated project plans
+│   ├── buildpilot_api/        # Django project directory
+│   │   ├── __init__.py
+│   │   ├── settings.py        # Django settings
+│   │   ├── urls.py            # Main URL routing
+│   │   ├── wsgi.py            # WSGI configuration
+│   │   └── asgi.py            # ASGI configuration
+│   └── project_api/           # Django app for API endpoints
+│       ├── __init__.py
+│       ├── admin.py           # Django admin configuration
+│       ├── ai_service.py      # AI service wrapper for Django
+│       ├── apps.py            # App configuration
+│       ├── models.py          # Database models (empty for now)
+│       ├── tests.py           # Unit tests
+│       ├── urls.py            # API URL patterns
+│       └── views.py           # API view functions
+└── frontend/                  # Frontend (coming soon)
 ```
 
 ## 🔧 Configuration
@@ -114,8 +205,23 @@ AI Agent Project/
 Create a `.env` file in the `backend` directory with the following variables:
 
 ```env
+# OpenAI API Configuration
 OPENAI_API_KEY=your_openai_api_key_here
+
+# Django Configuration  
+DJANGO_SECRET_KEY=your_django_secret_key_here
 ```
+
+**How to get these keys:**
+
+1. **OpenAI API Key**: 
+   - Sign up at [OpenAI](https://platform.openai.com/)
+   - Go to API Keys section and create a new key
+
+2. **Django Secret Key**:
+   ```bash
+   python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+   ```
 
 ## 🤖 AI Agents
 
@@ -138,15 +244,19 @@ This project is currently in active development. Here's what's implemented and w
 - Project analysis capabilities
 - Documentation generation
 - Basic CLI interface
+- Django REST API backend
+- Health check and project generation endpoints
+- Automatic markdown file generation and download
 
 ### 🔄 In Progress
 - Enhanced project analysis algorithms
 - Improved documentation templates
 - Error handling and validation
+- API rate limiting and authentication
 
 ### 📅 Planned
 - Web-based frontend interface
-- API endpoints for integration
+- API authentication and user management
 - Database integration for project history
 - Additional specialized agents (testing, deployment, security)
 - Plugin system for custom agents
