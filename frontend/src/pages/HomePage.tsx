@@ -9,13 +9,10 @@ const HomePage: React.FC = () => {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
-            <div className="inline-flex items-center px-4 py-2 bg-aquamarine/20 text-gray-700 rounded-full text-sm font-medium mb-6 backdrop-blur-sm border border-white/20">
-              <Sparkles className="h-4 w-4 mr-2" />
-              AI-Powered Project Planning
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-french-violet mb-6 leading-tight">
-              Build Better Projects with
-              <span className="bg-gradient-to-r from-grape to-slate-blue bg-clip-text text-transparent"> AI</span>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-french-violet via-grape via-slate-blue via-united-nations-blue to-picton-blue bg-clip-text text-transparent">
+                Build Better Projects with AI
+              </span>
             </h1>
             <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
               Transform your project ideas into comprehensive plans with intelligent AI agents. 
