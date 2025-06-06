@@ -18,9 +18,11 @@ class CustomTasks:
             5. Key features breakdown
             6. Potential challenges and solutions
             7. Prerequisites and setup requirements
+            
+            IMPORTANT: Return only the plain text content without any markdown code block wrappers (no ```markdown or ``` tags).
             """),
             agent=agent,
-            expected_output="A detailed project analysis with recommendations and timeline"
+            expected_output="A detailed project analysis with recommendations and timeline in plain text format"
         )
     
     def readme_generation_task(self, agent, project_name, project_analysis):
@@ -43,7 +45,10 @@ class CustomTasks:
             10. Contact/support information
             
             Format it as a complete, professional README.md file with proper markdown formatting.
+            
+            IMPORTANT: Return only the markdown content without wrapping it in code blocks. 
+            Do NOT use ```markdown or ``` tags to wrap the output. Return the raw markdown content directly.
             """),
             agent=agent,
-            expected_output="A complete, professional README.md file in markdown format"
+            expected_output="A complete, professional README.md file in raw markdown format (no code block wrappers)"
         )

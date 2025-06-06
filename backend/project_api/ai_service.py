@@ -1,5 +1,6 @@
 import os
 import sys
+import re
 from pathlib import Path
 from django.conf import settings
 from crewai import Crew, Process
@@ -15,6 +16,22 @@ class ProjectPlanningService:
     def __init__(self):
         self.agents = CustomAgents()
         self.tasks = CustomTasks()
+    
+    def clean_markdown_response(self, content):
+        """Clean up the AI response by removing markdown code block wrappers"""
+        content = str(content).strip()
+        
+        # Remove markdown code block wrapper if present
+        markdown_pattern = r'^```(?:markdown)?\s*\n(.*?)\n```$'
+        match = re.match(markdown_pattern, content, re.DOTALL)
+        if match:
+            content = match.group(1).strip()
+        
+        # Also handle cases where there might be extra backticks at start/end
+        content = re.sub(r'^`{3,}(?:markdown)?\s*\n?', '', content)
+        content = re.sub(r'\n?`{3,}$', '', content)
+        
+        return content.strip()
     
     def generate_project_plan(self, project_name, project_description):
         """Generate project plan using AI agents"""
@@ -39,9 +56,10 @@ class ProjectPlanningService:
                 verbose=False  # Set to False for API usage
             )
             
-            # Execute and return result
+            # Execute and clean the result
             crew_output = crew.kickoff()
-            return str(crew_output)
+            cleaned_output = self.clean_markdown_response(crew_output)
+            return cleaned_output
             
         except Exception as e:
             raise Exception(f"Error generating project plan: {str(e)}")
