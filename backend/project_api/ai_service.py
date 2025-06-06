@@ -46,15 +46,15 @@ class ProjectPlanningService:
         except Exception as e:
             raise Exception(f"Error generating project plan: {str(e)}")
     
-    def save_plan_to_file(self, project_name, plan_content):
-        """Save the generated plan to a markdown file"""
-        try:
-            filename = f"{project_name.replace(' ', '_').lower()}_plan.md"
-            file_path = settings.GENERATED_PLANS_DIR / filename
+    # def save_plan_to_file(self, project_name, plan_content):
+    #     """Save the generated plan to a markdown file"""
+    #     try:
+    #         filename = f"{project_name.replace(' ', '_').lower()}_plan.md"
+    #         file_path = settings.GENERATED_PLANS_DIR / filename
             
-            with open(file_path, 'w', encoding='utf-8') as f:
-                f.write(plan_content)
+    #         with open(file_path, 'w', encoding='utf-8') as f:
+    #             f.write(plan_content)
             
-            return str(file_path)
-        except Exception as e:
-            raise Exception(f"Error saving plan to file: {str(e)}")
+    #         return str(file_path)
+    #     except Exception as e:
+    #         raise Exception(f"Error saving plan to file: {str(e)}")

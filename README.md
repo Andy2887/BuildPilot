@@ -35,7 +35,10 @@ BuildPilot uses a multi-agent system powered by CrewAI:
 - **python-dotenv**: Environment variable management
 
 ### Frontend
-- *Coming Soon* - Frontend interface is planned for future development
+- **React/Next.js**: Modern web interface (planned)
+- **Markdown Preview**: Real-time markdown rendering
+- **File Export**: PDF, TXT, and MD download options
+- **Responsive Design**: Mobile-friendly interface
 
 ## 📋 Prerequisites
 
@@ -89,6 +92,46 @@ python manage.py runserver # Start the Django development server
 
 The API server will be available at `http://localhost:8000`
 
+## 🖥️ Frontend Features (Planned)
+
+The BuildPilot frontend will provide a user-friendly web interface with the following key features:
+
+### 1. **Home Page** (`/`)
+- Clean, modern landing page design
+- **Contact Section**: 
+  - Author's email address
+  - LinkedIn profile link
+- Navigation to other sections of the application
+
+### 2. **About Page** (`/about`)
+- Comprehensive explanation of BuildPilot's purpose and capabilities
+- Overview of AI-powered project planning features
+- Technology stack information
+- Use cases and benefits
+
+### 3. **Project Generator Interface** (`/generator`)
+- **Input Form**:
+  - Project name field
+  - Project description textarea
+  - Form validation and error handling
+- **Loading State**:
+  - Animated spinner during plan generation
+  - Progress indicators
+  - Estimated time remaining
+- **Results Display**:
+  - **Markdown Preview**: Real-time rendered preview of the generated plan
+  - **Export Options**: Download buttons for multiple formats:
+    - **PDF**: Professional document format
+    - **TXT**: Plain text version
+    - **MD**: Markdown source file
+- **Responsive Design**: Mobile-friendly interface for all devices
+
+### 4. **User Experience Features**
+- **Real-time Preview**: Instant markdown rendering with syntax highlighting
+- **Copy to Clipboard**: Quick copy functionality for generated content
+- **Print Support**: Browser-friendly printing of generated plans
+- **Accessibility**: WCAG compliant design for screen readers and keyboard navigation
+
 ## 🌐 API Endpoints
 
 BuildPilot provides a REST API for integration with other applications:
@@ -118,16 +161,9 @@ BuildPilot provides a REST API for integration with other applications:
   ```json
   {
     "message": "success",
-    "plan": "# My Awesome App\n\n## Project Overview\n...",
-    "file_path": "/path/to/generated/my_awesome_app_plan.md"
+    "plan": "# My Awesome App\n\n## Project Overview\n..."
   }
   ```
-
-### Download Generated Plan
-- **Endpoint**: `GET /api/download-plan/<filename>/`
-- **Description**: Download the generated project plan as a markdown file
-- **Example**: `GET /api/download-plan/my_awesome_app_plan.md`
-- **Response**: Markdown file download
 
 ### API Usage Examples
 
@@ -143,9 +179,6 @@ curl -X POST http://localhost:8000/api/generate-plan/ \
     "project_name": "E-commerce Platform",
     "project_description": "A full-stack e-commerce solution with product catalog, shopping cart, payment processing, and admin dashboard."
   }'
-
-# Download generated plan
-curl http://localhost:8000/api/download-plan/e-commerce_platform_plan.md
 ```
 
 **Using Python requests:**
@@ -181,7 +214,7 @@ BuildPilot/
 │   ├── main.py                # CLI application entry point
 │   ├── requirements.txt       # Python dependencies
 │   ├── tasks.py               # Task definitions for agents
-│   ├── generated_plans/       # Directory for generated project plans
+│   ├── generated_plans/       # Directory for generated project plans (removed)
 │   ├── buildpilot_api/        # Django project directory
 │   │   ├── __init__.py
 │   │   ├── settings.py        # Django settings
@@ -197,7 +230,17 @@ BuildPilot/
 │       ├── tests.py           # Unit tests
 │       ├── urls.py            # API URL patterns
 │       └── views.py           # API view functions
-└── frontend/                  # Frontend (coming soon)
+└── frontend/                  # Frontend web interface
+    ├── pages/
+    │   ├── index.js           # Home page with contact information
+    │   ├── about.js           # About page explaining the program
+    │   └── generator.js       # Main interface for project plan generation
+    ├── components/
+    │   ├── ProjectForm.js     # Form for project input
+    │   ├── LoadingSpinner.js  # Loading animation during generation
+    │   ├── MarkdownPreview.js # Markdown preview component
+    │   └── ExportOptions.js   # PDF/TXT/MD download options
+    └── styles/                # CSS styling files
 ```
 
 ## 🔧 Configuration
@@ -246,7 +289,7 @@ This project is currently in active development. Here's what's implemented and w
 - Basic CLI interface
 - Django REST API backend
 - Health check and project generation endpoints
-- Automatic markdown file generation and download
+- Automatic markdown plan generation (file download removed)
 
 ### 🔄 In Progress
 - Enhanced project analysis algorithms
@@ -255,7 +298,13 @@ This project is currently in active development. Here's what's implemented and w
 - API rate limiting and authentication
 
 ### 📅 Planned
-- Web-based frontend interface
+- **Frontend Web Interface**:
+  - **Home Page**: Landing page with contact information (author's email and LinkedIn)
+  - **About Page**: Detailed explanation of BuildPilot's capabilities and purpose
+  - **Generator Interface**: Interactive form for project name and description input
+  - **Loading States**: Smooth loading animations during plan generation
+  - **Markdown Preview**: Real-time preview of generated project plans
+  - **Export Options**: Download generated plans as PDF, TXT, or MD files
 - API authentication and user management
 - Database integration for project history
 - Additional specialized agents (testing, deployment, security)

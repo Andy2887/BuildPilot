@@ -37,13 +37,12 @@ def generate_plan(request):
         service = ProjectPlanningService()
         plan = service.generate_project_plan(project_name, project_description)
         
-        # Save plan to file
-        file_path = service.save_plan_to_file(project_name, plan)
+        # # Save plan to file
+        # file_path = service.save_plan_to_file(project_name, plan)
         
         return Response({
             "message": "success",
-            "plan": plan,
-            "file_path": file_path
+            "plan": plan
         })
         
     except Exception as e:
@@ -51,23 +50,23 @@ def generate_plan(request):
             "error": f"An error occurred: {str(e)}"
         }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-@api_view(['GET'])
-def download_plan(request, filename):
-    """Download generated plan as markdown file"""
-    try:
-        file_path = settings.GENERATED_PLANS_DIR / filename
+# @api_view(['GET'])
+# def download_plan(request, filename):
+#     """Download generated plan as markdown file"""
+#     try:
+#         file_path = settings.GENERATED_PLANS_DIR / filename
         
-        if not file_path.exists():
-            raise Http404("Plan file not found")
+#         if not file_path.exists():
+#             raise Http404("Plan file not found")
         
-        with open(file_path, 'r', encoding='utf-8') as f:
-            content = f.read()
+#         with open(file_path, 'r', encoding='utf-8') as f:
+#             content = f.read()
         
-        response = HttpResponse(content, content_type='text/markdown')
-        response['Content-Disposition'] = f'attachment; filename="{filename}"'
-        return response
+#         response = HttpResponse(content, content_type='text/markdown')
+#         response['Content-Disposition'] = f'attachment; filename="{filename}"'
+#         return response
         
-    except Exception as e:
-        return JsonResponse({
-            "error": f"Error downloading file: {str(e)}"
-        }, status=500)
+#     except Exception as e:
+#         return JsonResponse({
+#             "error": f"Error downloading file: {str(e)}"
+#         }, status=500)

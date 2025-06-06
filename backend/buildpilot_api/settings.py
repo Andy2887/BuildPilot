@@ -55,13 +55,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'buildpilot_api.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -102,7 +95,3 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True  # Only for development
-
-# Create a directory for generated plans
-GENERATED_PLANS_DIR = BASE_DIR / 'generated_plans'
-os.makedirs(GENERATED_PLANS_DIR, exist_ok=True)
