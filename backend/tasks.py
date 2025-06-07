@@ -57,8 +57,7 @@ class CustomTasks:
                - Include HTTP methods, URL paths, and parameters
                - Explain API versioning and rate limiting if applicable
             
-            Make the project structure and API documentation sections extremely detailed. 
-            These should be the longest and most informative parts of the README.
+            Make the project structure section extremely detailed. 
             
             Format it as a complete, professional README.md file with proper markdown formatting.
             
@@ -66,5 +65,5 @@ class CustomTasks:
             Do NOT use ```markdown or ``` tags to wrap the output. Return the raw markdown content directly.
             """),
             agent=agent,
-            expected_output="A complete, professional README.md file with detailed project structure and API documentation as the main focus, in raw markdown format"
+            expected_output="A complete, professional README.md file with detailed project structure as the main focus, in raw markdown format"
         )
