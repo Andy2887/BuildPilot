@@ -15,32 +15,17 @@ class CustomTasks:
             1. **DETAILED PROJECT STRUCTURE PLANNING** (Primary Focus):
                - Design a comprehensive file and directory structure
                - Specify EVERY file that should be created with their exact purposes
-               - Explain the role and responsibility of each file and folder
-               - Detail how files will interact and depend on each other
-               - Provide specific file naming conventions and organization patterns
                - Include configuration files, utility files, and helper modules
-               - Explain architectural patterns and folder hierarchies
             
             2. **COMPREHENSIVE API DESIGN AND DOCUMENTATION** (Primary Focus):
                - Design and document EVERY API endpoint in detail
-               - Specify HTTP methods, URL patterns, and route structures
-               - Define request/response schemas and data models
+               - Specify URL patterns and define request/response schemas and data models
                - Plan authentication and authorization mechanisms
-               - Detail error handling and status code strategies
-               - Include API versioning and rate limiting considerations
-               - Plan database models and API data flow
             
             3. Supporting analysis sections:
                - Technology stack recommendations with specific versions
                - Project architecture overview and design patterns
-               - Development phases and milestones
-               - Estimated timeline with detailed breakdowns
-               - Key features breakdown with implementation details
                - Potential challenges and specific solutions
-               - Prerequisites and detailed setup requirements
-            
-            Make the project structure planning and API design sections extremely detailed and comprehensive.
-            These should be the longest and most thorough parts of your analysis.
             
             IMPORTANT: Return only the plain text content without any markdown code block wrappers (no ```markdown or ``` tags).
             """),
