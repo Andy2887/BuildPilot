@@ -54,6 +54,11 @@ const GeneratorPage: React.FC = () => {
     setProjectData(null);
   };
 
+  const handleTimeout = () => {
+    setError('Request timed out after 5 minutes. Please try again with a simpler project description.');
+    setIsLoading(false);
+  };
+
   return (
     <div className="min-h-screen pt-16 pb-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -76,7 +81,7 @@ const GeneratorPage: React.FC = () => {
               hasResult={!!generatedPlan}
             />
             
-            {isLoading && <LoadingSpinner />}
+            {isLoading && <LoadingSpinner onTimeout={handleTimeout} />}
             
             {error && (
               <div className="bg-gradient-to-r from-red-50 to-pink-50 border border-red-200 rounded-xl p-6 backdrop-blur-sm">
