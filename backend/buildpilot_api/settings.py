@@ -91,7 +91,7 @@ REST_FRAMEWORK = {
 # Add CORS settings for frontend
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Vite dev server
-     # Your frontend domain
+    "https://build-pilot-rho.vercel.app",
 ]
 
 
