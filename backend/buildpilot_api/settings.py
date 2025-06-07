@@ -8,9 +8,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'your-secret-key-here')
 
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -88,10 +88,11 @@ REST_FRAMEWORK = {
     ],
 }
 
-# CORS settings
+# Add CORS settings for frontend
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
+    "http://localhost:5173",  # Vite dev server
+     # Your frontend domain
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True  # Only for development
+
+# CORS_ALLOW_ALL_ORIGINS = True  # Only for development
