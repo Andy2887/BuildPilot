@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link
               to="/generator"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-grape to-slate-blue text-white font-semibold rounded-xl hover:from-french-violet hover:to-grape transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
