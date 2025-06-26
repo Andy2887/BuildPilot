@@ -1,45 +1,6 @@
 import React from 'react';
-import { Brain, Users, Cog, FileText, Clock, Shield } from 'lucide-react';
 
 const AboutPage: React.FC = () => {
-  const features = [
-    {
-      icon: Brain,
-      title: 'AI-Powered Analysis',
-      description: 'Advanced AI agents analyze your project requirements and provide intelligent recommendations.',
-      color: 'bg-gradient-to-br from-picton-blue to-aero text-white'
-    },
-    {
-      icon: Cog,
-      title: 'Technology Stack Recommendations',
-      description: 'Get expert suggestions for frameworks, tools, and technologies tailored to your project.',
-      color: 'bg-gradient-to-br from-turquoise to-aquamarine text-white'
-    },
-    {
-      icon: FileText,
-      title: 'Automated Documentation',
-      description: 'Generate professional README files and comprehensive project documentation instantly.',
-      color: 'bg-gradient-to-br from-grape to-slate-blue text-white'
-    },
-    {
-      icon: Clock,
-      title: 'Development Timeline',
-      description: 'Receive realistic timeline estimates and milestone planning for your project.',
-      color: 'bg-gradient-to-br from-aero to-sky-blue text-white'
-    },
-    {
-      icon: Users,
-      title: 'Multi-Agent System',
-      description: 'Specialized AI agents work together to provide comprehensive project planning.',
-      color: 'bg-gradient-to-br from-sky-blue to-tiffany-blue text-white'
-    },
-    {
-      icon: Shield,
-      title: 'Architecture Planning',
-      description: 'Get detailed project structure and architecture recommendations for scalability.',
-      color: 'bg-gradient-to-br from-french-violet to-grape text-white'
-    }
-  ];
 
   const agents = [
     {
@@ -69,32 +30,6 @@ const AboutPage: React.FC = () => {
             project planning and documentation. Using advanced AI agents, we transform your ideas into 
             comprehensive, actionable project plans.
           </p>
-        </div>
-
-        {/* Mission Section */}
-        <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 mb-16 border border-white/30">
-          <h2 className="text-3xl font-bold text-french-violet mb-6 text-center">Our Mission</h2>
-          <p className="text-lg text-gray-700 leading-relaxed text-center max-w-4xl mx-auto">
-            We believe that great projects start with great planning. BuildPilot empowers developers, 
-            entrepreneurs, and teams to turn their innovative ideas into well-structured, professionally 
-            documented projects with the power of artificial intelligence.
-          </p>
-        </div>
-
-        {/* Features Grid */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-french-violet mb-12 text-center">Key Features</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="bg-white/70 backdrop-blur-sm p-6 rounded-xl border border-white/30 hover:shadow-lg transition-all duration-300 hover:bg-white/80">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${feature.color}`}>
-                  <feature.icon className="h-6 w-6" />
-                </div>
-                <h3 className="text-xl font-semibold text-french-violet mb-3">{feature.title}</h3>
-                <p className="text-gray-700">{feature.description}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* AI Agents Section */}

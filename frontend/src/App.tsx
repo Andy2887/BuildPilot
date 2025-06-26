@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
@@ -8,7 +7,7 @@ import GeneratorPage from './pages/GeneratorPage';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen">
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />

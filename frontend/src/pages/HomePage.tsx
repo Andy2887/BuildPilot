@@ -6,7 +6,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link
               to="/generator"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-grape to-slate-blue text-white font-semibold rounded-xl hover:from-french-violet hover:to-grape transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
@@ -39,31 +39,31 @@ const HomePage: React.FC = () => {
 
           {/* Feature Cards */}
           <div className="grid md:grid-cols-3 gap-8 mb-20">
-            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl border border-white/30 hover:shadow-lg transition-all duration-300 hover:bg-white/80">
+            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl border border-white/30">
               <div className="bg-gradient-to-br from-picton-blue to-aero w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto">
                 <Target className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-french-violet mb-3">Smart Analysis</h3>
+              <h3 className="text-xl font-semibold text-french-violet mb-3">Architecture</h3>
               <p className="text-gray-700">
-                AI-powered project analysis that understands your requirements and recommends optimal solutions.
+                Get detailed project structure and architecture recommendations for scalability.
               </p>
             </div>
             
-            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl border border-white/30 hover:shadow-lg transition-all duration-300 hover:bg-white/80">
+            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl border border-white/30">
               <div className="bg-gradient-to-br from-turquoise to-aquamarine w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto">
                 <Sparkles className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-french-violet mb-3">Auto Documentation</h3>
+              <h3 className="text-xl font-semibold text-french-violet mb-3">Documentation</h3>
               <p className="text-gray-700">
                 Generate professional README files and comprehensive project documentation automatically.
               </p>
             </div>
             
-            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl border border-white/30 hover:shadow-lg transition-all duration-300 hover:bg-white/80">
+            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl border border-white/30">
               <div className="bg-gradient-to-br from-grape to-slate-blue w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto">
                 <Zap className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-french-violet mb-3">Tech Stack Guidance</h3>
+              <h3 className="text-xl font-semibold text-french-violet mb-3">Tech Stack</h3>
               <p className="text-gray-700">
                 Get expert recommendations for frameworks, tools, and technologies for your specific use case.
               </p>
