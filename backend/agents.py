@@ -4,7 +4,7 @@ from langchain_openai import ChatOpenAI
 
 class CustomAgents:
     def __init__(self):
-        self.OpenAIGPT = ChatOpenAI(model_name="gpt-4.1-mini", temperature=0.3)
+        self.OpenAIGPT = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.3)
 
     def project_planner_agent(self):
         return Agent(

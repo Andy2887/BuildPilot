@@ -1,7 +1,5 @@
 # BuildPilot 🚧
 
-*This project is currently in progress*
-
 An AI-powered project planning assistant that helps developers analyze project requirements, recommend technology stacks, and generate comprehensive project documentation using intelligent AI agents.
 
 ## 🎯 Overview

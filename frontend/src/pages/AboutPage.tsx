@@ -62,7 +62,7 @@ const AboutPage: React.FC = () => {
         {/* Header Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-french-violet mb-6">
-            About <span className="bg-gradient-to-r from-grape to-slate-blue bg-clip-text text-transparent">BuildPilot</span>
+            About BuildPilot
           </h1>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             BuildPilot is an AI-powered project planning assistant that revolutionizes how developers approach 

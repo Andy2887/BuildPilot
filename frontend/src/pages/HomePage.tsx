@@ -10,7 +10,7 @@ const HomePage: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-french-violet via-grape via-slate-blue via-united-nations-blue to-picton-blue bg-clip-text text-transparent">
+              <span className="font-bold text-french-violet mb-3">
                 Build Better Projects with AI
               </span>
             </h1>

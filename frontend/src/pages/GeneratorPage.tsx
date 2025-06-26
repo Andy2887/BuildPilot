@@ -64,7 +64,7 @@ const GeneratorPage: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-french-violet mb-4">
-            AI Project <span className="bg-gradient-to-r from-grape to-slate-blue bg-clip-text text-transparent">Generator</span>
+            AI Project Generator
           </h1>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto">
             Transform your project ideas into comprehensive plans with our AI-powered assistant

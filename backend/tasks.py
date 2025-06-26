@@ -17,9 +17,9 @@ class CustomTasks:
                - Specify EVERY file that should be created with their exact purposes
                - Include configuration files, utility files, and helper modules
             
-            2. **COMPREHENSIVE API DESIGN AND DOCUMENTATION** (Primary Focus):
-               - Design and document EVERY API endpoint in detail
-               - Specify URL patterns and define request/response schemas and data models
+            2. API design:
+               - Design and document EVERY API endpoint
+               - Specify URL patterns and provide a brief explanation of what it does
                - Plan authentication and authorization mechanisms
             
             3. Supporting analysis sections:
@@ -52,9 +52,9 @@ class CustomTasks:
                - Include file paths and organization logic
                - Provide a comprehensive file tree structure
             
-            3. **COMPREHENSIVE API DOCUMENTATION** (Primary Focus):
+            3. API documentation:
                - Document EVERY API endpoint
-               - Include HTTP methods, URL paths, and parameters
+               - Include URL paths and brief explanation
                - Explain API versioning and rate limiting if applicable
             
             Make the project structure section extremely detailed. 
